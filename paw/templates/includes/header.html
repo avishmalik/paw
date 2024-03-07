@@ -1,0 +1,83 @@
+
+{% load static %}
+
+<style>
+	.header-section {
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	  z-index: 1000;
+	  background-color: #fff; /* You can customize the background color */
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+	}
+  
+	.header-info {
+	  /* Add some padding to compensate for the fixed header */
+	  padding-top: 110px; /* Adjust this value based on your header height */
+	}
+</style>
+<!-- Header Section Begin -->
+<header class="header-section">
+	<div class="container-fluid">
+		<div class="inner-header">
+			<div class="logo">
+				<a href="./index.html"><img src="img/logo.png" alt=""></a>
+			</div>
+			<div class="header-right">
+				<img src="img/icons/search.png" alt="" class="search-trigger">
+			</div>
+			<div class="user-access">
+				{% if user.id is None %}
+						<small class="title text-muted">Welcome guest!</small>
+						<br>
+						<a href="{% url 'login' %}">Sign in</a> <span class="dark-transp"> | </span>
+						<a href="{% url 'register' %}"> Register</a>
+				{% else %}
+						<small class="title text-muted">Welcome {{ user.first_name }}!</small>
+						<br>
+						<a href="{% url 'dashboard' %}">Dashboard</a> <span class="dark-transp"> | </span>
+						<a href="{% url 'logout' %}"> Logout</a>
+				{% endif %}
+			</div>
+			<nav class="main-menu mobile-menu">
+				<ul>
+					<li><a href="{% url 'landing_page' %}">Adopt</a></li>
+					<li><a href="{% url 'create_post' %}">Create Post</a></li>
+					<li><a href="./categories.html">Check Disease</a>
+						<ul class="sub-menu">
+							<li><a href="product-page.html">Disease Stage</a></li>
+							<li><a href="shopping-cart.html">Skin Disease</a></li>
+						</ul>
+					</li>
+					<li><a href="{% url 'about' %}">About</a></li>
+					<!-- <li><a href="./check-out.html">Find</a></li> -->
+					<li><a href="{% url 'contact' %}">Contact Us</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<div class="header-info">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="header-item">
+					<!-- <img src="img/icons/delivery.png" alt=""> -->
+					<p>Adopt, Shelter, Heal: Compassionate Connections</p>
+				</div>
+			</div>
+			<div class="col-md-4 text-left text-lg-center">
+				<div class="header-item">
+					<!-- <img src="img/icons/voucher.png" alt=""> -->
+					<p>Caring Hearts, Happy Tails: Join Us</p>
+				</div>
+			</div>
+			<div class="col-md-4 text-left text-xl-right">
+				<div class="header-item">
+				<!-- <img src="img/icons/sales.png" alt=""> -->
+				<p>Empathy Unleashed: Rescuing Hope</p>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
