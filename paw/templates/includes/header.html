@@ -9,54 +9,61 @@
 	  z-index: 1000;
 	  background-color: #fff; /* You can customize the background color */
 	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+	  padding: 20px;
 	}
   
 	.header-info {
 	  /* Add some padding to compensate for the fixed header */
 	  padding-top: 110px; /* Adjust this value based on your header height */
 	}
+
+	@media (max-width: 1073px){
+		.header-info {
+			display: none;
+		}
+	}
 </style>
 <!-- Header Section Begin -->
 <header class="header-section">
 	<div class="container-fluid">
-		<div class="inner-header">
-			<div class="logo">
-				<a href="./index.html"><img src="img/logo.png" alt=""></a>
-			</div>
-			<div class="header-right">
-				<img src="img/icons/search.png" alt="" class="search-trigger">
-			</div>
-			<div class="user-access">
-				{% if user.id is None %}
-						<small class="title text-muted">Welcome guest!</small>
-						<br>
-						<a href="{% url 'login' %}">Sign in</a> <span class="dark-transp"> | </span>
-						<a href="{% url 'register' %}"> Register</a>
-				{% else %}
-						<small class="title text-muted">Welcome {{ user.first_name }}!</small>
-						<br>
-						<a href="{% url 'dashboard' %}">Dashboard</a> <span class="dark-transp"> | </span>
-						<a href="{% url 'logout' %}"> Logout</a>
-				{% endif %}
-			</div>
-			<nav class="main-menu mobile-menu">
-				<ul>
-					<li><a href="{% url 'landing_page' %}">Adopt</a></li>
-					<li><a href="{% url 'create_post' %}">Create Post</a></li>
-					<li><a href="./categories.html">Check Disease</a>
-						<ul class="sub-menu">
-							<li><a href="product-page.html">Disease Stage</a></li>
-							<li><a href="shopping-cart.html">Skin Disease</a></li>
-						</ul>
-					</li>
-					<li><a href="{% url 'about' %}">About</a></li>
-					<!-- <li><a href="./check-out.html">Find</a></li> -->
-					<li><a href="{% url 'contact' %}">Contact Us</a></li>
-				</ul>
-			</nav>
+	  <div class="inner-header d-flex justify-content-between align-items-center">
+		<div class="logo">
+		  <a href="{% url 'landing_page' %}">
+			<img style="height: 55px" src="{% static './img/logorm.png' %}" alt="Logo">
+		  </a>
 		</div>
+		<nav class="main-menu mobile-menu">
+		  <ul class="">
+			<li><a href="{% url 'landing_page' %}">Adopt</a></li>
+			<li><a href="{% url 'create_post' %}">Create Post</a></li>
+			<li class="has-submenu">
+			  <a href="#">Check Disease</a>
+			  <ul class="sub-menu">
+				<li><a href="">Disease Stage</a></li>
+				<li><a href="">Skin Disease</a></li>
+			  </ul>
+			</li>
+			<li><a href="{% url 'about' %}">About</a></li>
+			<li><a href="{% url 'contact' %}">Contact Us</a></li>
+		  </ul>
+		</nav>
+		<div class="">
+		  {% if user.id is None %}
+			<small class="title text-muted">Welcome guest!</small>
+			<br>
+			<a class="text-dark" href="{% url 'login' %}"><b>Sign in</b></a> <span class="dark-transp"> | </span>
+			<a class="text-dark" href="{% url 'register' %}"><b>Register</b></a>
+		  {% else %}
+			<small class="title text-muted">Welcome {{ user.first_name }}!</small>
+			<br>
+			<a class="text-dark" href="{% url 'dashboard' %}"><b>Dashboard</b></a> <span class="dark-transp"> | </span>
+			<a class="text-dark" href="{% url 'logout' %}"><b>Logout</b></a>
+		  {% endif %}
+		</div>
+	  </div>
 	</div>
-</header>
+  </header>
+  
 <div class="header-info">
 	<div class="container-fluid">
 		<div class="row">
