@@ -3,6 +3,14 @@
 
 
 {% block content %}
+<style>
+    .shadow-hr {
+        border: 0; /* Remove default border */
+        height: 1px; /* Set the height of the hr */
+        background-color: #ddd; /* Set the color of the hr */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); /* Add a shadow at the bottom */
+    }
+</style>
     <!-- Page Add Section Begin -->
     <div class="container mt-2">
         {% include 'includes/alerts.html' %}
@@ -22,7 +30,7 @@
         </div>
     </section>
     <!-- Page Add Section End -->
-    <hr>
+    <hr class="shadow-hr">
     <!-- Product Page Section Beign -->
     <section class="product-page">
         <div class="container">
@@ -104,7 +112,7 @@
             <h3 style="text-align: center;">No Pending Requests</h3>
         {% endif %}
     </div>
-    <hr>
+    <hr class="shadow-hr">
     <!-- Related Product Section Begin -->
     {% if related %}
         <section class="related-product spad">
