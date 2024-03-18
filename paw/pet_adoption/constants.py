@@ -11,3 +11,6 @@ HEADER_TAGS = [
 ]
 
 HT_SIZE = len(HEADER_TAGS) - 1
+
+# local url
+PREDICTION_URL = 'localhost:8501'

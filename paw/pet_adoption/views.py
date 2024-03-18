@@ -12,7 +12,9 @@ from django.contrib import messages
 
 def landing_page(request):
     data = {}
-    data['posts'] = Post.objects.filter(is_active=True)
+    data['posts'] = Post.objects.filter(is_active=True).order_by(
+        '-created_at'
+    )
     return render(request, 'pet_adoption/landing.html', data)
 
 
@@ -100,7 +102,11 @@ def see_details(request, post_id):
 
 @login_required
 def delete_post(request, post_id):
-    Post.objects.get(id=post_id).delete()
+    post = Post.objects.get(id=post_id)
+    AdoptionRequest.objects.filter(
+        post=post
+    ).delete()
+    post.delete()
     return redirect('landing_page')
 
 
