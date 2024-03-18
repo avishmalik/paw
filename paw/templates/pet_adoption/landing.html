@@ -103,25 +103,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 mix all dresses bags">
-                        <div class="single-product-item p-1 shadow" style="background-color: whitesmoke; border: 2px solid black;">
-                            <figure class="image-container" style="height: 200px; overflow: hidden;">
-                                <a href="{% url 'see_details' post_id=post.id %}"><img src="{{ post.image.url }}" alt="" style="width: 100%; height: 100%; object-fit: cover;"></a>
-                                <div class="p-status">{{ post.category }}</div>
-                            </figure>
-                            <div class="product-text px-1">
-                                <h3 class="pb-2">{{ post.name }}</h3>
-                                <hr>
-                                {% if post.price %}
-                                    <h5>&#x20B9;{{ post.price }}</h5>
-                                {% endif %}
-                                <h6 style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">{{ post.description }}</h6>
-                            </div>
-                            <div class="text-center py-2">
-                                <a href="{% url 'see_details' post_id=post.id %}" class="btn btn-sm btn-primary shadow">Details</a>
-                            </div>
-                        </div>
-                    </div>
                 {% endfor %}
             </div>
         </div>
