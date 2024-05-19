@@ -2,8 +2,15 @@
 
 
 {% block content %}
+<style>
+  @media (max-width: 1074px){
+		.section-content {
+			margin-top: 200px;
+		}
+	}
+</style>
 
-<section class="section-conten padding-y" style="min-height:84vh">
+<section class="section-content padding-y" style="min-height:84vh">
 
 
 {% if request.GET.command == 'verification' %}
