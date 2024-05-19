@@ -76,7 +76,7 @@ SESSION_EXPIRE_SECONDS = 3600  # 1 hour
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_TIMEOUT_REDIRECT = 'accounts/login'
 
-ROOT_URLCONF = "paw.paw.urls"
+ROOT_URLCONF = "paw.urls"
 
 TEMPLATES = [
     {
@@ -94,9 +94,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "paw.paw.wsgi.application"
+WSGI_APPLICATION = "paw.wsgi.application"
 
-AUTH_USER_MODEL = 'paw.accounts.Account'
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
