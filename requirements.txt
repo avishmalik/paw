@@ -26,3 +26,5 @@ tzdata==2023.3
 urllib3==1.26.14
 whitenoise==6.4.0
 yarg==0.1.9
+cloudinary
+django-cloudinary-storage

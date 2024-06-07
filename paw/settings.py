@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 import mimetypes
+import cloudinary
 
 
 mimetypes.add_type("text/javascript", ".js", True)
@@ -54,6 +55,8 @@ INSTALLED_APPS = [
     "django_browser_reload",
     "accounts",
     "pet_adoption",
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +150,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+
+cloudinary.config( 
+  cloud_name = "dwebwsvxc", 
+  api_key = "614618678257932", 
+  api_secret = "VM3rGUt3NORAIMP868KwRmzhp14" 
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "paw" / "staticfiles"

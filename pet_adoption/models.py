@@ -1,12 +1,13 @@
 from django.db import models
 from accounts.models import Account
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class Post(models.Model):
     user = models.ForeignKey(Account, on_delete=models.RESTRICT)
     name = models.CharField(max_length=25)
-    image = models.ImageField(upload_to='posts')
+    image = CloudinaryField('image')
     description = models.TextField(max_length=500,blank=True)
     post_address = models.CharField(max_length=100,blank=True)
     price = models.IntegerField(blank=True, null=True)
